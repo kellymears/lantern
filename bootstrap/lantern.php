@@ -60,9 +60,7 @@ $lantern->register(Lantern\Providers\ConfigServiceProvider::class);
 |
 */
 
-// $lantern->register(Lantern\Providers\AdminPageServiceProvider::class);
 $lantern->register(Lantern\Providers\CarbonFieldsServiceProvider::class);
-$lantern->register(Lantern\Providers\InterventionServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -72,11 +70,6 @@ $lantern->register(Lantern\Providers\InterventionServiceProvider::class);
 | WordPress Post Repository & Interface Bindings
 |
 */
-
-$lantern->register(Lantern\Providers\PostTypeServiceProvider::class);
-$lantern->register(Lantern\Providers\PostServiceProvider::class);
-$lantern->register(Lantern\Providers\WordPressAssetsServiceProvider::class);
-$lantern->register(Lantern\Providers\ShortcodeServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
