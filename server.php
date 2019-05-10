@@ -35,6 +35,4 @@ $lantern = require __DIR__.'/bootstrap/lantern.php';
 |
 */
 
-if (!strstr($_SERVER['REQUEST_URI'], 'wp')) {
-    $lantern->run();
-}
+$lantern;

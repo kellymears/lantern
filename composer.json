@@ -1,5 +1,5 @@
 {
-    "name": "tinypixel/lantern",
+    "name": "tiny-pixel/lantern",
     "type": "mu-plugin",
     "description": "Laravel Lumen Framework for a better WordPress",
     "keywords": [
@@ -15,8 +15,6 @@
         "laravel/lumen-framework": "5.8.*",
         "vlucas/phpdotenv": "^3.3",
         "league/flysystem-aws-s3-v3": "^1.0",
-        "silk/silk": "^0.12.1",
-        "soberwp/intervention": "^1.2",
         "htmlburger/carbon-fields": "^3.0"
     },
     "require-dev": {

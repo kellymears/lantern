@@ -15,7 +15,7 @@ require_once __DIR__.'/../vendor/autoload.php';
 |
 */
 
-$lantern = new Laravel\Lumen\Application(dirname(__DIR__));
+$lantern = new \Lantern\Application(dirname(__DIR__));
 $lantern->withFacades();
 $lantern->withEloquent();
 
@@ -62,42 +62,4 @@ $lantern->register(Lantern\Providers\ConfigServiceProvider::class);
 
 $lantern->register(Lantern\Providers\CarbonFieldsServiceProvider::class);
 
-/*
-|--------------------------------------------------------------------------
-| Content
-|--------------------------------------------------------------------------
-|
-| WordPress Post Repository & Interface Bindings
-|
-*/
-
-/*
-|--------------------------------------------------------------------------
-| Load The Application Routes
-|--------------------------------------------------------------------------
-|
-| Next we will include the routes file so that they can all be added to
-| the application. This will provide all of the URLs the application
-| can respond to, as well as the controllers that may handle them.
-|
-*/
-
-$router_config = (object) [
-    'web' => [
-        'namespace' => 'Lantern\Http\Controllers',
-    ],
-    'api' => [
-        'prefix' => 'api',
-        'namespace' => 'Lantern\Http\Controllers\API',
-    ],
-];
-
-$lantern->router->group($router_config->web, function ($router) {
-    require __DIR__.'/../routes/web.php';
-});
-
-$lantern->router->group($router_config->api, function ($router) {
-    require __DIR__.'/../routes/api.php';
-});
-
-return $lantern;
+$lantern->boot();

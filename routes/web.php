@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@getIndex');
+/* Route::get('/', 'IndexController@getIndex');
 Route::get('/posts', 'PostController@getAll');
 Route::get('/posts/published', 'PostController@getAllPublished');
+ */
