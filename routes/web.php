@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Application Routes (Public)
+| Application Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register all of the routes for an application.
@@ -13,7 +13,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/* Route::get('/', 'IndexController@getIndex');
-Route::get('/posts', 'PostController@getAll');
-Route::get('/posts/published', 'PostController@getAllPublished');
- */
+Route::get('/', 'IndexController@show');

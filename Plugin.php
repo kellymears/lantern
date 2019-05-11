@@ -1,18 +1,32 @@
 <?php
 
+/**
+ * Plugin Name: Lantern
+ * Plugin URI: https://github.com/pixelcollective/lantern
+ * Description: Lantern keeps the light on for yeh.
+ * Version: 1.0.0
+ * Author: Tiny Pixel
+ * Author URI: https://tinypixel.dev/
+ * Domain Path: /lang
+ *
+ **/
+
+namespace Lantern;
+
 /*
 |--------------------------------------------------------------------------
-| Overload Lumen
+| Pre-boot: Set storage to app/uploads
 |--------------------------------------------------------------------------
 |
 | Overloading Lumen defaults to run in a novel environment.
 |
 */
-require __DIR__ .'/bootstrap/helpers.php';
+
+$🛄 = require 'storage.php';
 
 /*
 |--------------------------------------------------------------------------
-| Create The Application
+| Boot: Boot lantern
 |--------------------------------------------------------------------------
 |
 | First we need to get an application instance. This creates an instance
@@ -21,7 +35,7 @@ require __DIR__ .'/bootstrap/helpers.php';
 |
 */
 
-$lantern = require __DIR__.'/bootstrap/lantern.php';
+$🎃 = include 'lantern.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -35,4 +49,6 @@ $lantern = require __DIR__.'/bootstrap/lantern.php';
 |
 */
 
-$lantern;
+if (!strstr($_SERVER['REQUEST_URI'], 'wp')) {
+    $🎃->run();
+}

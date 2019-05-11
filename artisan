@@ -1,12 +1,22 @@
 #!/usr/bin/env php
 <?php
 
-use Symfony\Component\Console\Input\ArgvInput;
-use Symfony\Component\Console\Output\ConsoleOutput;
+namespace Lantern;
 
 /*
 |--------------------------------------------------------------------------
-| Create The Application
+| Pre-boot: Set storage to app/uploads
+|--------------------------------------------------------------------------
+|
+| Overloading Lumen defaults to run in a novel environment.
+|
+*/
+
+$🛄 = require 'storage.php';
+
+/*
+|--------------------------------------------------------------------------
+| Boot: Boot lantern
 |--------------------------------------------------------------------------
 |
 | First we need to get an application instance. This creates an instance
@@ -15,7 +25,7 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 |
 */
 
-$app = require __DIR__.'/bootstrap/lantern.php';
+$🎃 = include 'lantern.php';
 
 /*
 |--------------------------------------------------------------------------
@@ -28,8 +38,6 @@ $app = require __DIR__.'/bootstrap/lantern.php';
 |
 */
 
-$kernel = $app->make(
-    'Illuminate\Contracts\Console\Kernel'
-);
+$kernel = $🎃->make('\Illuminate\Contracts\Console\Kernel');
 
 exit($kernel->handle(new ArgvInput, new ConsoleOutput));

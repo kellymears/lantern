@@ -7,6 +7,8 @@ use \Carbon_Fields\Carbon_Fields;
 use \Carbon_Fields\Container;
 use \Carbon_Fields\Field;
 
+use \Lantern\Services\Fields\Fields;
+
 class CarbonFieldsServiceProvider extends ServiceProvider
 {
     public function register()
@@ -22,6 +24,10 @@ class CarbonFieldsServiceProvider extends ServiceProvider
         $this->app->singleton('carbon.field', function ($app) {
             return Field::class;
         });
+
+        $this->app->bind('lantern.fields', function ($app) {
+            return new \Lantern\Services\Fields\Fields($app);
+        });
     }
 
     public function boot()
@@ -32,6 +38,6 @@ class CarbonFieldsServiceProvider extends ServiceProvider
             $carbon::boot();
         });
 
-        (new \Lantern\Services\Fields\Fields($this->app))->run();
+        $this->app->make('lantern.fields')->run();
     }
 }

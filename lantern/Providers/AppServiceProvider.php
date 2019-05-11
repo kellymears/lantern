@@ -13,6 +13,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+    }
+
+    public function boot()
+    {
+        $this->app->make('blade-x')->component('components.*');
     }
 }

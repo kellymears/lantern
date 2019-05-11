@@ -30,4 +30,15 @@ return [
 
     'compiled' => realpath(storage_path('framework/views')),
 
+    /*
+    |--------------------------------------------------------------------------
+    | View Namespaces
+    |--------------------------------------------------------------------------
+    |
+    | Blade has an underutilized feature that allows developers to add
+    | supplemental view paths that may contain conflictingly named views.
+    | These paths are prefixed with a namespace to get around the conflicts.
+    | A use case might be including views from within a plugin folder.
+    |
+    */
 ];
