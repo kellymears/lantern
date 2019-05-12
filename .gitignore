@@ -6,5 +6,4 @@ Homestead.yaml
 /dist
 /public
 /storage/logs/*
-
-
+node_modules/

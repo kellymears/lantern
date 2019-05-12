@@ -50,5 +50,7 @@ $🎃 = include 'lantern.php';
 */
 
 if (!strstr($_SERVER['REQUEST_URI'], 'wp')) {
-    $🎃->run();
+    add_action('after_setup_theme', function () use ($🎃) {
+        $🎃->run();
+    });
 }

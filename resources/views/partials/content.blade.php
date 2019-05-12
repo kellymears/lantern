@@ -1,1 +1,4 @@
-<heading-one classes="lh-title" :content="$post->post_title" />
+<heading-one classes="lh-title" :content="title" />
+@if(has_blocks($content))
+  {!! do_blocks($content) !!}
+@endif

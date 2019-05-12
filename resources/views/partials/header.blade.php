@@ -1,7 +1,7 @@
 <header class="banner">
-  <div class="container">
+  <box pa3>
     <a class="brand" href="{{ home_url('/') }}">
-      {{ get_bloginfo('name', 'display') }}
+      <type h2 f1 sans-serif>{{ get_bloginfo('name', 'display') }}</type>
     </a>
 
     <nav class="nav-primary">
@@ -9,5 +9,5 @@
         {!! wp_nav_menu(['theme_location' => 'primary_navigation', 'menu_class' => 'nav']) !!}
       @endif
     </nav>
-  </div>
+  </box>
 </header>

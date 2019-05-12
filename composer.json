@@ -16,6 +16,7 @@
         "laravel/lumen-framework": "5.8.*",
         "league/flysystem-aws-s3-v3": "^1.0",
         "spatie/laravel-blade-x": "^2.0.0",
+        "tiny-pixel/block-compose": "dev-master",
         "vlucas/phpdotenv": "^3.3"
     },
     "require-dev": {

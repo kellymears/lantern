@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Index routes
+| Archive Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register all of the routes for an application.
@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@show');
-Route::get("/{single}", 'SingleController@show');
+foreach (get_categories() as $category) {
+    Route::get('/category/{'. $category .'}', 'ArchiveController@show');
+}

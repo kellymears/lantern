@@ -11,10 +11,13 @@ use \Lantern\Exceptions\Handler;
 use \Lantern\Console\Kernel as Console;
 use \Laravel\Lumen\Bootstrap\LoadEnvironmentVariables;
 
-use \Spatie\BladeX\BladeXServiceProvider;
 use \Lantern\Providers\AppServiceProvider;
 use \Lantern\Providers\ConfigServiceProvider;
+use \Lantern\Providers\DirectivesServiceProvider;
+use \Lantern\Providers\BlockComposerServiceProvider;
 use \Lantern\Providers\CarbonFieldsServiceProvider;
+
+use \Spatie\BladeX\BladeXServiceProvider;
 
 (new LoadEnvironmentVariables(dirname(__DIR__)))->bootstrap();
 
@@ -59,6 +62,7 @@ $🎃->singleton(Console::class, Kernel::class);
 | Assign class aliases to custom components
 |
 */
+$🎃->alias('blade.compiler', Illuminate\View\Compilers\BladeCompiler::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -74,6 +78,8 @@ $🎃->register(AppServiceProvider::class);
 $🎃->register(ConfigServiceProvider::class);
 $🎃->register(CarbonFieldsServiceProvider::class);
 $🎃->register(BladeXServiceProvider::class);
+$🎃->register(DirectivesServiceProvider::class);
+$🎃->register(BlockComposerServiceProvider::class);
 
 /*
 |--------------------------------------------------------------------------
@@ -84,14 +90,27 @@ $🎃->register(BladeXServiceProvider::class);
 |
 */
 
-$router_config = (object) [
+$🎃routes = (object) [
     'web' => [
         'namespace' => 'Lantern\Http\Controllers',
-    ]
+        'as' => 'index',
+    ],
+    'archive' => [
+        'namespace' => 'Lantern\Http\Controllers',
+        'as' => 'category',
+    ],
+    'single' => [
+        'namespace' => 'Lantern\Http\Controllers',
+        'as' => 'single',
+    ],
 ];
 
-$🎃->router->group($router_config->web, function ($router) {
+$🎃->router->group($🎃routes->web, function ($router) {
     require __DIR__ .'/routes/web.php';
+});
+
+$🎃->router->group($🎃routes->archive, function ($router) {
+    require __DIR__ .'/routes/archive.php';
 });
 
 return $🎃;

@@ -18,5 +18,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->app->make('blade-x')->component('components.*');
+        $this->app->make('blade-x')->component('atoms.*');
     }
 }

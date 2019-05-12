@@ -12,7 +12,7 @@ class IndexController extends BaseController
     {
         $posts = Post::with(['author', 'meta']);
 
-        $data = (object)[
+        $data = (object) [
             'app' => (object) [
                 'title' => 'Lantern!',
                 'posts' => $posts->published()->get(),
